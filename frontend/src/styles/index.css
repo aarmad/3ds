@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Styles de sélection */
+  ::selection {
+    @apply bg-nintendo-red text-white;
+  }
+
+  /* Barre de défilement */
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-nintendo-red rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-red-700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-nintendo-red text-white font-bold py-3 px-6 rounded-full 
+           hover:bg-red-700 transition duration-300 transform hover:scale-105 
+           active:scale-95 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-nintendo-blue text-white font-bold py-3 px-6 rounded-full 
+           hover:bg-blue-700 transition duration-300 transform hover:scale-105 
+           active:scale-95 shadow-lg hover:shadow-xl;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all 
+           duration-300 transform hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-gray-900 mb-6 relative
+           after:content-[''] after:absolute after:left-0 after:-bottom-2 
+           after:w-16 after:h-1 after:bg-nintendo-red;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-nintendo-blue to-nintendo-red bg-clip-text text-transparent;
+  }
+}
+
+/* Animations personnalisées */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Styles pour les timeline */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  @apply bg-nintendo-blue;
+  border-radius: 2px;
+}
+
+/* Effets de survol pour les cartes */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Badges */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-800;
+}
+
+/* Loader */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e60012;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

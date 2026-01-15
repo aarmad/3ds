@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Nintendo 3DS</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    textarea { width: 100%; height: 200px; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Éditeur de contenu</h1>
+  <div>
+    <h2>Histoire</h2>
+    <textarea id="historyEditor"></textarea>
+    <button onclick="save('history')">Enregistrer</button>
+  </div>
+  <script>
+    async function load() {
+      const res = await fetch('/api/history');
+      const data = await res.json();
+      document.getElementById('historyEditor').value = JSON.stringify(data, null, 2);
+    }
+    async function save(section) {
+      const data = JSON.parse(document.getElementById(section + 'Editor').value);
+      await fetch(`/api/${section}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      alert('Mis à jour');
+    }
+    load();
+  </script>
+</body>
+</html>
