@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MarketChart from '../components/MarketChart';
+import { TrendingUp, BarChart3, Target, Lightbulb, Wrench } from 'lucide-react';
 import {
   LineChart, Line, AreaChart, Area, XAxis, YAxis,
   CartesianGrid, Tooltip, Legend, ResponsiveContainer
@@ -50,9 +51,12 @@ const Market = () => {
       {/* Tendance principale */}
       <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg">
         <div className="text-center">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            📈 Tendance du marché
-          </h2>
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <TrendingUp size={32} className="text-purple-600" />
+            <h2 className="text-3xl font-semibold text-gray-800">
+              Tendance du marché
+            </h2>
+          </div>
           <p className="text-2xl text-gray-700 italic">
             "{marketData.trend}"
           </p>
@@ -74,31 +78,31 @@ const Market = () => {
               <LineChart data={priceEvolutionData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="année" />
-                <YAxis 
+                <YAxis
                   label={{ value: 'Prix ($)', angle: -90, position: 'insideLeft' }}
                   domain={[0, 400]}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={(value) => [`$${value}`, 'Prix']}
                 />
                 <Legend />
-                <Line 
-                  type="monotone" 
-                  dataKey="3DS XL" 
-                  stroke="#e60012" 
+                <Line
+                  type="monotone"
+                  dataKey="3DS XL"
+                  stroke="#e60012"
                   strokeWidth={3}
                   activeDot={{ r: 8 }}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="New 3DS XL" 
-                  stroke="#1b7bb8" 
+                <Line
+                  type="monotone"
+                  dataKey="New 3DS XL"
+                  stroke="#1b7bb8"
                   strokeWidth={3}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="2DS" 
-                  stroke="#8B4513" 
+                <Line
+                  type="monotone"
+                  dataKey="2DS"
+                  stroke="#8B4513"
                   strokeWidth={3}
                 />
               </LineChart>
@@ -119,9 +123,12 @@ const Market = () => {
 
       {/* Tableau des prix */}
       <div className="bg-white rounded-2xl p-8 shadow-lg">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-6">
-          📊 Prix actuels du marché d'occasion
-        </h2>
+        <div className="flex items-center space-x-3 mb-6">
+          <BarChart3 size={32} className="text-gray-800" />
+          <h2 className="text-3xl font-semibold text-gray-800">
+            Prix actuels du marché d'occasion
+          </h2>
+        </div>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
@@ -152,13 +159,12 @@ const Market = () => {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                      index === 0 
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${index === 0
                         ? 'bg-green-100 text-green-800'
                         : index === 1
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : 'bg-blue-100 text-blue-800'
-                    }`}>
+                          ? 'bg-yellow-100 text-yellow-800'
+                          : 'bg-blue-100 text-blue-800'
+                      }`}>
                       {index === 0 ? 'Élevée' : index === 1 ? 'Très élevée' : 'Modérée'}
                     </span>
                   </td>
@@ -167,9 +173,8 @@ const Market = () => {
                       {[...Array(3)].map((_, i) => (
                         <svg
                           key={i}
-                          className={`w-5 h-5 ${
-                            i < (index + 1) ? 'text-yellow-400' : 'text-gray-300'
-                          }`}
+                          className={`w-5 h-5 ${i < (index + 1) ? 'text-yellow-400' : 'text-gray-300'
+                            }`}
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -190,9 +195,12 @@ const Market = () => {
 
       {/* Facteurs explicatifs */}
       <div className="bg-gray-50 rounded-2xl p-8">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-6">
-          🎯 Facteurs expliquant cette valorisation
-        </h2>
+        <div className="flex items-center space-x-3 mb-6">
+          <Target size={32} className="text-nintendo-red" />
+          <h2 className="text-3xl font-semibold text-gray-800">
+            Facteurs expliquant cette valorisation
+          </h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {marketData.reasons?.map((reason, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
@@ -209,12 +217,15 @@ const Market = () => {
             </div>
           ))}
         </div>
-        
+
         {/* Section supplémentaire */}
         <div className="mt-8 bg-gradient-to-r from-nintendo-blue to-nintendo-red rounded-xl p-6 text-white">
-          <h3 className="text-2xl font-bold mb-4">💡 Conseil aux collectionneurs</h3>
+          <div className="flex items-center space-x-2 mb-4">
+            <Lightbulb size={24} />
+            <h3 className="text-2xl font-bold">Conseil aux collectionneurs</h3>
+          </div>
           <p className="text-lg">
-            La valeur des 3DS ne cesse d'augmenter. Les modèles en bon état avec leur boîte d'origine 
+            La valeur des 3DS ne cesse d'augmenter. Les modèles en bon état avec leur boîte d'origine
             voient leur prix doubler. Les éditions limitées (Pokémon, Zelda) sont particulièrement prisées.
             Investir aujourd'hui pourrait s'avérer judicieux pour les années à venir.
           </p>
@@ -223,12 +234,15 @@ const Market = () => {
 
       {/* Homebrew */}
       <div className="bg-white rounded-2xl p-8 shadow-lg">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-6">
-          🛠️ Scène Homebrew et Modding
-        </h2>
+        <div className="flex items-center space-x-3 mb-6">
+          <Wrench size={32} className="text-gray-800" />
+          <h2 className="text-3xl font-semibold text-gray-800">
+            Scène Homebrew et Modding
+          </h2>
+        </div>
         <div className="space-y-4 text-gray-700">
           <p>
-            La scène homebrew de la 3DS est l'une des plus actives et accessibles du marché rétro. 
+            La scène homebrew de la 3DS est l'une des plus actives et accessibles du marché rétro.
             Cela contribue fortement à la demande :
           </p>
           <ul className="list-disc pl-6 space-y-2">

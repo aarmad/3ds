@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Home, Scroll, Trophy, TrendingUp, Settings } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,10 +11,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { path: '/', label: 'Accueil', icon: '🏠' },
-    { path: '/history', label: 'Histoire', icon: '📜' },
-    { path: '/success', label: 'Succès', icon: '🏆' },
-    { path: '/market', label: 'Marché', icon: '📈' },
+    { path: '/', label: 'Accueil', icon: <Home size={20} /> },
+    { path: '/history', label: 'Histoire', icon: <Scroll size={20} /> },
+    { path: '/success', label: 'Succès', icon: <Trophy size={20} /> },
+    { path: '/market', label: 'Marché', icon: <TrendingUp size={20} /> },
   ];
 
   return (
@@ -51,9 +52,10 @@ const Navbar = () => {
             {/* Bouton admin (pour démo) */}
             <Link
               to="/admin"
-              className="ml-4 px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition duration-300 font-medium"
+              className="ml-4 px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition duration-300 font-medium flex items-center space-x-2"
             >
-              ⚙️ Admin
+              <Settings size={18} />
+              <span>Admin</span>
             </Link>
           </div>
 
@@ -101,7 +103,7 @@ const Navbar = () => {
                 className="flex items-center space-x-3 px-4 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span>⚙️</span>
+                <Settings size={20} />
                 <span className="font-medium">Interface Admin</span>
               </a>
             </div>

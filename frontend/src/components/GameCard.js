@@ -1,10 +1,12 @@
+import { Gamepad2, Zap, Leaf, Smile, Star, Trophy } from 'lucide-react';
+
 const GameCard = ({ title, sales, rank }) => {
   // Icônes pour différents jeux
   const getIcon = () => {
-    if (title.includes('Mario')) return '👨‍🎤';
-    if (title.includes('Pokémon')) return '⚡';
-    if (title.includes('Animal Crossing')) return '🌳';
-    return '🎮';
+    if (title.includes('Mario')) return <Smile className="text-yellow-500" size={32} />;
+    if (title.includes('Pokémon')) return <Zap className="text-yellow-400" size={32} />;
+    if (title.includes('Animal Crossing')) return <Leaf className="text-green-500" size={32} />;
+    return <Gamepad2 className="text-blue-500" size={32} />;
   };
 
   return (
@@ -12,7 +14,7 @@ const GameCard = ({ title, sales, rank }) => {
       <div className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center space-x-3">
-            <div className="text-3xl">{getIcon()}</div>
+            <div>{getIcon()}</div>
             <div>
               <div className="flex items-center">
                 <span className="text-xs font-semibold px-2 py-1 bg-gray-100 text-gray-600 rounded-full mr-2">
@@ -23,7 +25,7 @@ const GameCard = ({ title, sales, rank }) => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-6">
           <div className="flex items-baseline">
             <span className="text-4xl font-extrabold text-nintendo-red">
@@ -36,8 +38,14 @@ const GameCard = ({ title, sales, rank }) => {
 
         <div className="mt-6 pt-6 border-t border-gray-100">
           <div className="flex items-center justify-between text-sm text-gray-500">
-            <span>⭐ Classé #{rank}</span>
-            <span>🏆 Succès critique</span>
+            <span className="flex items-center space-x-1">
+              <Star size={14} className="text-yellow-400 fill-yellow-400" />
+              <span>Classé #{rank}</span>
+            </span>
+            <span className="flex items-center space-x-1">
+              <Trophy size={14} className="text-yellow-600" />
+              <span>Succès critique</span>
+            </span>
           </div>
         </div>
 
@@ -48,8 +56,8 @@ const GameCard = ({ title, sales, rank }) => {
             <span>{Math.round(parseFloat(sales) / 19 * 100)}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2.5">
-            <div 
-              className="bg-gradient-to-r from-nintendo-blue to-nintendo-red h-2.5 rounded-full" 
+            <div
+              className="bg-gradient-to-r from-nintendo-blue to-nintendo-red h-2.5 rounded-full"
               style={{ width: `${Math.min(100, (parseFloat(sales) / 19 * 100))}%` }}
             ></div>
           </div>

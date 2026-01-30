@@ -3,6 +3,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, Legend
 } from 'recharts';
+import { Search, DollarSign } from 'lucide-react';
 
 const MarketChart = () => {
   // Données simulées pour la demande du marché
@@ -25,12 +26,14 @@ const MarketChart = () => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-4 border border-gray-200 shadow-lg rounded-lg">
-          <p className="font-bold text-gray-800">{label} 2024</p>
-          <p className="text-nintendo-blue">
-            🔍 Recherches: <span className="font-bold">{payload[0].value}%</span>
+          <p className="font-bold text-gray-800 mb-2">{label} 2024</p>
+          <p className="text-nintendo-blue flex items-center space-x-1">
+            <Search size={14} />
+            <span>Recherches: <span className="font-bold">{payload[0].value}%</span></span>
           </p>
-          <p className="text-nintendo-red">
-            💰 Ventes: <span className="font-bold">{payload[1].value}</span>
+          <p className="text-nintendo-red flex items-center space-x-1">
+            <DollarSign size={14} />
+            <span>Ventes: <span className="font-bold">{payload[1].value}</span></span>
           </p>
         </div>
       );
@@ -44,37 +47,37 @@ const MarketChart = () => {
         data={demandData}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
       >
-        <CartesianGrid 
-          strokeDasharray="3 3" 
+        <CartesianGrid
+          strokeDasharray="3 3"
           stroke="#f0f0f0"
         />
-        <XAxis 
-          dataKey="mois" 
+        <XAxis
+          dataKey="mois"
           axisLine={{ stroke: '#d1d5db' }}
           tickLine={false}
         />
-        <YAxis 
+        <YAxis
           yAxisId="left"
-          label={{ 
-            value: 'Recherches (%)', 
-            angle: -90, 
+          label={{
+            value: 'Recherches (%)',
+            angle: -90,
             position: 'insideLeft',
             offset: -10
           }}
           domain={[0, 200]}
         />
-        <YAxis 
+        <YAxis
           yAxisId="right"
           orientation="right"
-          label={{ 
-            value: 'Ventes', 
-            angle: 90, 
+          label={{
+            value: 'Ventes',
+            angle: 90,
             position: 'insideRight',
             offset: -10
           }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Legend 
+        <Legend
           verticalAlign="top"
           height={36}
         />
@@ -100,12 +103,12 @@ const MarketChart = () => {
         />
         <defs>
           <linearGradient id="colorRecherche" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#1b7bb8" stopOpacity={0.8}/>
-            <stop offset="95%" stopColor="#1b7bb8" stopOpacity={0}/>
+            <stop offset="5%" stopColor="#1b7bb8" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#1b7bb8" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="colorVentes" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#e60012" stopOpacity={0.8}/>
-            <stop offset="95%" stopColor="#e60012" stopOpacity={0}/>
+            <stop offset="5%" stopColor="#e60012" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#e60012" stopOpacity={0} />
           </linearGradient>
         </defs>
       </AreaChart>
