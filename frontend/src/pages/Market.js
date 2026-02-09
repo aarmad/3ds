@@ -17,7 +17,7 @@ const Market = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/market');
+        const response = await axios.get('/api/market');
         setMarketData(response.data);
       } catch (error) {
         console.error('Erreur lors du chargement des données:', error);
@@ -160,10 +160,10 @@ const Market = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${index === 0
-                        ? 'bg-green-100 text-green-800'
-                        : index === 1
-                          ? 'bg-yellow-100 text-yellow-800'
-                          : 'bg-blue-100 text-blue-800'
+                      ? 'bg-green-100 text-green-800'
+                      : index === 1
+                        ? 'bg-yellow-100 text-yellow-800'
+                        : 'bg-blue-100 text-blue-800'
                       }`}>
                       {index === 0 ? 'Élevée' : index === 1 ? 'Très élevée' : 'Modérée'}
                     </span>

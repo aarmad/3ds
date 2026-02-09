@@ -1,0 +1,11 @@
+{
+  "name": "nintendo-3ds-archive",
+  "version": "1.0.0",
+  "description": "Full-stack Nintendo 3DS Archive",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "serverless-http": "^3.2.0"
+  }
+}

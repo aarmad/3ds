@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import GameCard from '../components/GameCard';
-import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, 
-  Tooltip, Legend, ResponsiveContainer 
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
 const Success = () => {
-  const [successData, setSuccessData] = useState({ 
-    totalSales: '', 
-    topGames: [] 
+  const [successData, setSuccessData] = useState({
+    totalSales: '',
+    topGames: []
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/success');
+        const response = await axios.get('/api/success');
         setSuccessData(response.data);
       } catch (error) {
         console.error('Erreur lors du chargement des données:', error);
@@ -72,28 +72,28 @@ const Success = () => {
               margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 angle={-45}
                 textAnchor="end"
                 height={80}
               />
-              <YAxis 
-                label={{ 
-                  value: 'Millions d\'unités', 
-                  angle: -90, 
-                  position: 'insideLeft' 
-                }} 
+              <YAxis
+                label={{
+                  value: 'Millions d\'unités',
+                  angle: -90,
+                  position: 'insideLeft'
+                }}
               />
-              <Tooltip 
+              <Tooltip
                 formatter={(value) => [`${value} millions`, 'Ventes']}
                 labelFormatter={(label) => `Jeu: ${label}`}
               />
               <Legend />
-              <Bar 
-                dataKey="ventes" 
-                name="Ventes (millions)" 
-                fill="#e60012" 
+              <Bar
+                dataKey="ventes"
+                name="Ventes (millions)"
+                fill="#e60012"
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>

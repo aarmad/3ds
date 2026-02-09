@@ -6,7 +6,7 @@ const History = () => {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/history')
+    axios.get('/api/history')
       .then(res => setHistory(res.data))
       .catch(err => console.error(err));
   }, []);
