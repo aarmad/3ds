@@ -1,0 +1,9 @@
+{
+    "short_name": "3DS Archive",
+    "name": "Nintendo 3DS Archive",
+    "icons": [],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#e60012",
+    "background_color": "#f8fafc"
+}
