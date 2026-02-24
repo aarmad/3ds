@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Scroll, Trophy, TrendingUp, Settings } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,12 +23,15 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-nintendo-red rounded-full flex items-center justify-center">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <motion.div
+              whileHover={{ rotate: 15, scale: 1.1 }}
+              className="w-10 h-10 bg-nintendo-red rounded-full flex items-center justify-center shadow-md shadow-red-200"
+            >
               <span className="text-white font-bold text-xl">3DS</span>
-            </div>
+            </motion.div>
             <div>
-              <div className="text-2xl font-bold text-gray-900">Nintendo 3DS</div>
+              <div className="text-2xl font-bold text-gray-900 group-hover:text-nintendo-red transition-colors">Nintendo 3DS</div>
               <div className="text-xs text-gray-500">Archives & Marché Rétro</div>
             </div>
           </Link>
@@ -38,17 +42,16 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-full transition duration-300 ${
-                  isActive(item.path)
-                    ? 'bg-nintendo-red text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
-                }`}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-full transition duration-300 ${isActive(item.path)
+                  ? 'bg-nintendo-red text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
+                  }`}
               >
                 <span>{item.icon}</span>
                 <span className="font-medium">{item.label}</span>
               </Link>
             ))}
-            
+
             {/* Bouton admin (pour démo) */}
             <Link
               to="/admin"
@@ -84,18 +87,17 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition duration-300 ${
-                    isActive(item.path)
-                      ? 'bg-nintendo-red text-white'
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
+                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition duration-300 ${isActive(item.path)
+                    ? 'bg-nintendo-red text-white'
+                    : 'text-gray-700 hover:bg-gray-100'
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="text-xl">{item.icon}</span>
                   <span className="font-medium">{item.label}</span>
                 </Link>
               ))}
-              
+
               <a
                 href="http://localhost:5000/admin/admin.html"
                 target="_blank"
