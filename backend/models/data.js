@@ -3,7 +3,7 @@ exports.history = [
     year: 2011,
     event: 'Lancement de la Nintendo 3DS',
     details: 'Sortie mondiale avec la promesse d\'une expérience 3D sans lunettes. Le prix initial était de 249 $.',
-    image: '/images/console.jpg'
+    image: '/favicon.svg'
   },
   {
     year: 2011,
@@ -21,7 +21,7 @@ exports.history = [
     year: 2012,
     event: 'Lancement du modèle 3DS XL',
     details: 'Réponse aux demandes de plus grands écrans, offrant une immersion accrue avec une surface d\'affichage augmentée de 90 %.',
-    image: '/images/console.jpg'
+    image: '/favicon.svg'
   },
   {
     year: 2013,
@@ -33,25 +33,25 @@ exports.history = [
     year: 2013,
     event: 'Arrivée de la Nintendo 2DS',
     details: 'Une version simplifiée et plus robuste sans effet 3D, ciblant un public plus jeune et un prix plus accessible.',
-    image: '/images/console.jpg'
+    image: '/favicon.svg'
   },
   {
     year: 2014,
     event: 'New Nintendo 3DS & XL',
     details: 'Une version "Pro" avec un second stick (C-Stick), des boutons ZL/ZR, un processeur plus puissant et une 3D stable.',
-    image: '/images/console.jpg'
+    image: '/favicon.svg'
   },
   {
     year: 2020,
     event: 'La fin d\'une ère',
     details: 'Nintendo annonce l\'arrêt officiel de la production de la famille 3DS le 16 septembre 2020 après 9 ans de succès.',
-    image: '/images/console.jpg'
+    image: '/favicon.svg'
   },
   {
     year: 2023,
     event: 'Fermeture du Nintendo eShop',
     details: 'Le 27 mars 2023, il n\'est plus possible d\'acheter du contenu numérique, marquant le passage de la console au statut "rétro".',
-    image: '/images/console.jpg'
+    image: '/favicon.svg'
   }
 ];
 
