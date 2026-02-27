@@ -3,55 +3,55 @@ exports.history = [
     year: 2011,
     event: 'Lancement de la Nintendo 3DS',
     details: 'Sortie mondiale avec la promesse d\'une expérience 3D sans lunettes. Le prix initial était de 249 $.',
-    image: 'https://romsfun.com/wp-content/uploads/2021/04/Nintendo_3ds_logo.png'
+    image: 'https://c4.wallpaperflare.com/wallpaper/654/236/14/nintendo-3ds-console-nintendo-hd-wallpaper.jpg'
   },
   {
     year: 2011,
     event: 'Succès de Super Mario 3D Land',
     details: 'Premier grand succès qui a démontré le potentiel de la 3D stéréoscopique pour le gameplay de précision.',
-    image: 'https://romsfun.com/wp-content/uploads/2019/11/super-mario-3d-land-3ds-300x274.jpg'
+    image: 'https://c4.wallpaperflare.com/wallpaper/535/203/805/mario-super-mario-bros-bowser-donkey-kong-wallpaper.jpg'
   },
   {
     year: 2011,
     event: 'Mario Kart 7 révolutionne la série',
     details: 'Introduction du deltaplane et de la personnalisation des karts, devenant l\'un des jeux les plus vendus de la console.',
-    image: 'https://romsfun.com/wp-content/uploads/2019/11/mario-kart-7-3ds-300x274.jpg'
+    image: 'https://c4.wallpaperflare.com/wallpaper/321/531/458/mario-mario-kart-7-wallpaper.jpg'
   },
   {
     year: 2012,
     event: 'Lancement du modèle 3DS XL',
     details: 'Réponse aux demandes de plus grands écrans, offrant une immersion accrue avec une surface d\'affichage augmentée de 90 %.',
-    image: 'https://romsfun.com/wp-content/uploads/2021/04/Nintendo_3ds_logo.png'
+    image: 'https://c4.wallpaperflare.com/wallpaper/654/236/14/nintendo-3ds-console-nintendo-hd-wallpaper.jpg'
   },
   {
     year: 2013,
     event: 'Légende de Zelda: Ocarina of Time 3D',
     details: 'Un chef-d\'œuvre classique revisité en 3D stéréoscopique.',
-    image: 'https://romsfun.com/wp-content/uploads/2019/11/Ocarina-of-Time-3D-3ds-300x267.jpg'
+    image: 'https://c4.wallpaperflare.com/wallpaper/178/192/904/the-legend-of-zelda-ocarina-of-time-3d-wallpaper.jpg'
   },
   {
     year: 2013,
     event: 'Arrivée de la Nintendo 2DS',
     details: 'Une version simplifiée et plus robuste sans effet 3D, ciblant un public plus jeune et un prix plus accessible.',
-    image: 'https://romsfun.com/wp-content/uploads/2021/04/Nintendo_3ds_logo.png'
+    image: 'https://c4.wallpaperflare.com/wallpaper/654/236/14/nintendo-3ds-console-nintendo-hd-wallpaper.jpg'
   },
   {
     year: 2014,
     event: 'New Nintendo 3DS & XL',
     details: 'Une version "Pro" avec un second stick (C-Stick), des boutons ZL/ZR, un processeur plus puissant et une 3D stable.',
-    image: 'https://romsfun.com/wp-content/uploads/2021/04/Nintendo_3ds_logo.png'
+    image: 'https://c4.wallpaperflare.com/wallpaper/654/236/14/nintendo-3ds-console-nintendo-hd-wallpaper.jpg'
   },
   {
     year: 2020,
     event: 'La fin d\'une ère',
     details: 'Nintendo annonce l\'arrêt officiel de la production de la famille 3DS le 16 septembre 2020 après 9 ans de succès.',
-    image: 'https://romsfun.com/wp-content/uploads/2021/04/Nintendo_3ds_logo.png'
+    image: 'https://c4.wallpaperflare.com/wallpaper/654/236/14/nintendo-3ds-console-nintendo-hd-wallpaper.jpg'
   },
   {
     year: 2023,
     event: 'Fermeture du Nintendo eShop',
     details: 'Le 27 mars 2023, il n\'est plus possible d\'acheter du contenu numérique, marquant le passage de la console au statut "rétro".',
-    image: 'https://romsfun.com/wp-content/uploads/2021/04/Nintendo_3ds_logo.png'
+    image: 'https://c4.wallpaperflare.com/wallpaper/654/236/14/nintendo-3ds-console-nintendo-hd-wallpaper.jpg'
   }
 ];
 
