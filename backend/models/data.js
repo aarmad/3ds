@@ -21,7 +21,7 @@ exports.history = [
     year: 2012,
     event: 'Lancement du modèle 3DS XL',
     details: 'Réponse aux demandes de plus grands écrans, offrant une immersion accrue avec une surface d\'affichage augmentée de 90 %.',
-    image: '/favicon.svg'
+    image: '/images/new-3ds-xl.png'
   },
   {
     year: 2013,
