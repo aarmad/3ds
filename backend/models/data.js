@@ -2,8 +2,8 @@ exports.history = [
   {
     year: 2011,
     event: 'Lancement de la Nintendo 3DS',
-    details: 'Sortie mondiale avec la promesse d\'une expérience 3D sans lunettes. Le prix initial était de 249 $.',
-    image: '/favicon.svg'
+    details: 'Sortie mondiale avec la promesse d\'une expérience 3D sans lunettes. Le prix initial était de 249 $.',
+    image: '/images/3ds_launch.png'
   },
   {
     year: 2011,
@@ -20,38 +20,38 @@ exports.history = [
   {
     year: 2012,
     event: 'Lancement du modèle 3DS XL',
-    details: 'Réponse aux demandes de plus grands écrans, offrant une immersion accrue avec une surface d\'affichage augmentée de 90 %.',
-    image: '/images/new-3ds-xl.png'
+    details: 'Réponse aux demandes de plus grands écrans, offrant une immersion accrue avec une surface d\'affichage augmentée de 90 %.',
+    image: '/images/3ds_xl.png'
   },
   {
     year: 2013,
-    event: 'Légende de Zelda: Ocarina of Time 3D',
-    details: 'Un chef-d\'œuvre classique revisité en 3D stéréoscopique.',
+    event: 'La Légende de Zelda: Ocarina of Time 3D',
+    details: 'Un chef-d\'œuvre classique revisité en 3D stéréoscopique avec des graphismes améliorés.',
     image: '/images/zelda.jpg'
   },
   {
     year: 2013,
     event: 'Arrivée de la Nintendo 2DS',
     details: 'Une version simplifiée et plus robuste sans effet 3D, ciblant un public plus jeune et un prix plus accessible.',
-    image: '/favicon.svg'
+    image: '/images/2ds.png'
   },
   {
     year: 2014,
     event: 'New Nintendo 3DS & XL',
     details: 'Une version "Pro" avec un second stick (C-Stick), des boutons ZL/ZR, un processeur plus puissant et une 3D stable.',
-    image: '/favicon.svg'
+    image: '/images/new-3ds-xl.png'
   },
   {
     year: 2020,
     event: 'La fin d\'une ère',
     details: 'Nintendo annonce l\'arrêt officiel de la production de la famille 3DS le 16 septembre 2020 après 9 ans de succès.',
-    image: '/favicon.svg'
+    image: '/images/end_of_era.png'
   },
   {
     year: 2023,
     event: 'Fermeture du Nintendo eShop',
     details: 'Le 27 mars 2023, il n\'est plus possible d\'acheter du contenu numérique, marquant le passage de la console au statut "rétro".',
-    image: '/favicon.svg'
+    image: '/images/eshop_closing.png'
   }
 ];
 
@@ -69,15 +69,15 @@ exports.success = {
 };
 
 exports.market = {
-  trend: 'Les prix des 3DS d’occasion ont augmenté jusqu’à 76 % en 2025',
+  trend: 'Les prix des 3DS d\'occasion ont augmenté jusqu\'à 76 % en 2025',
   currentPrices: [
-    { model: '3DS XL', price: '200 $ – 350 $' },
-    { model: 'New 3DS XL', price: '250 $ – 400 $' },
-    { model: '2DS', price: '100 $ – 180 $' }
+    { model: '3DS XL', price: '200 $ – 350 $' },
+    { model: 'New 3DS XL', price: '250 $ – 400 $' },
+    { model: '2DS', price: '100 $ – 180 $' }
   ],
   reasons: [
     'Arrêt de la production (2020)',
-    'Fermeture de l’eShop (2023)',
+    'Fermeture de l\'eShop (2023)',
     'Demande nostalgique et collectionneurs',
     'Scène homebrew active'
   ]
