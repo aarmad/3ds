@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import axios from 'axios';
-import { Scroll, Trophy, TrendingUp, Zap, BarChart3 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Home = () => {
   const [stats, setStats] = useState({
@@ -12,7 +12,6 @@ const Home = () => {
   });
 
   useEffect(() => {
-    // Charger des données pour les statistiques
     const loadStats = async () => {
       try {
         const historyRes = await axios.get('/api/history');
@@ -32,52 +31,189 @@ const Home = () => {
     loadStats();
   }, []);
 
-  const features = [
+  const highlights = [
     {
       title: "Histoire Complète",
-      icon: <Scroll className="text-accent-blue" size={40} />,
-      description: "Retracez le parcours de la 3DS de 2011 à aujourd'hui avec une timeline interactive.",
+      description: "Retracez le parcours de la 3DS de 2011 à aujourd'hui avec une timeline interactive et détaillée.",
       link: "/history",
-      count: `${stats.history} dates clés`,
-      color: "from-accent-blue to-blue-500"
+      stat: `${stats.history} dates clés`,
+      accent: 'accent-blue',
+      bg: 'from-blue-500/10 to-cyan-500/10'
     },
     {
       title: "Succès Monumentaux",
-      icon: <Trophy className="text-cyan-400" size={40} />,
-      description: "Découvrez les jeux les plus vendus et les chiffres records de la console.",
+      description: "Découvrez les jeux les plus vendus, les records de ventes et les chiffres impressionnants.",
       link: "/success",
-      count: `${stats.success} jeux analysés`,
-      color: "from-cyan-500 to-blue-500"
+      stat: `${stats.success} jeux analysés`,
+      accent: 'accent-magenta',
+      bg: 'from-magenta-500/10 to-pink-500/10'
     },
     {
       title: "Marché Actuel",
-      icon: <TrendingUp className="text-blue-400" size={40} />,
-      description: "Analyse des prix, tendances et valeur de collection en 2024.",
+      description: "Analyse en temps réel des prix, tendances de collection et valeur des consoles en 2024.",
       link: "/market",
-      count: `${stats.market} modèles suivis`,
-      color: "from-blue-500 to-purple-600"
+      stat: `${stats.market} modèles`,
+      accent: 'accent-orange',
+      bg: 'from-orange-500/10 to-red-500/10'
     }
   ];
 
-  const timelineHighlights = [
-    { year: 2011, event: "Sortie mondiale", highlight: "Première console portable 3D sans lunettes" },
-    { year: 2014, event: "New 3DS", highlight: "Processeur amélioré + boutons supplémentaires" },
-    { year: 2020, event: "Fin de production", highlight: "Arrêt après 9 ans de succès" },
-    { year: 2023, event: "eShop fermé", highlight: "Fin d'une ère numérique" }
-  ];
-
   return (
-    <div className="space-y-16 bg-dark-bg py-12">
-      {/* Section Hero */}
+    <div className="bg-dark-bg text-white">
+      {/* Hero Section */}
       <Hero />
 
-      {/* Introduction */}
-      <section className="text-center max-w-4xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white mb-6">
-          Bienvenue dans les archives de la Nintendo 3DS
+      {/* ═══════════════ SECTION INTRO ASYMÉTRIQUE ═══════════════ */}
+      <section className="section-insider max-w-7xl mx-auto">
+        <div className="grid-insider-2col items-center">
+          {/* Texte */}
+          <div>
+            <h2 className="title-insider mb-6">
+              Bienvenue dans les<br />
+              <span className="title-insider-accent">archives du 3DS</span>
+            </h2>
+            <div className="text-block-insider space-y-4">
+              <p>
+                Explorez l'histoire complète de l'une des consoles portables les plus iconiques de Nintendo. De son lancement révolutionnaire en 2011 à sa fin de production en 2020, découvrez comment la Nintendo 3DS a changé le gaming portable.
+              </p>
+              <p>
+                Analyse des succès commerciaux, tendances du marché, et l'héritage durable d'une console qui a vendu plus de 75 millions d'unités.
+              </p>
+            </div>
+            <Link to="/history" className="btn-insider btn-insider-blue mt-8">
+              Explorer l'histoire
+              <ArrowRight size={20} />
+            </Link>
+          </div>
+
+          {/* Élément graphique abstrait */}
+          <div className="relative h-64 md:h-96 flex items-center justify-center">
+            <div className="circle-pattern absolute inset-0 m-auto"></div>
+            <div className="absolute text-6xl opacity-20 animate-spin">3DS</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider-insider max-w-7xl mx-auto"></div>
+
+      {/* ═══════════════ TROIS HIGHLIGHTS - GRILLE ASYMÉTRIQUE ═══════════════ */}
+      <section className="section-insider max-w-7xl mx-auto">
+        <div className="mb-12">
+          <h2 className="title-insider">
+            Découvrez nos trois<br />
+            <span className="title-insider-accent">domaines d'exploration</span>
+          </h2>
+        </div>
+
+        <div className="grid-insider-3col">
+          {highlights.map((item, idx) => (
+            <Link key={idx} to={item.link}>
+              <div className={`card-insider card-insider-dark group cursor-pointer h-full`}>
+                {/* Background accent */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className={`inline-block w-2 h-12 bg-${item.accent} rounded-full mb-6`}></div>
+
+                  <h3 className="title-insider text-2xl mb-3 group-hover:translate-x-1 transition-transform">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-block-insider flex-grow mb-6">
+                    {item.description}
+                  </p>
+
+                  <div className="flex items-end justify-between">
+                    <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">
+                      {item.stat}
+                    </span>
+                    <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider-insider max-w-7xl mx-auto"></div>
+
+      {/* ═══════════════ TIMELINE VISUELLE ═══════════════ */}
+      <section className="section-insider max-w-7xl mx-auto">
+        <h2 className="title-insider mb-12">
+          Jalons importants
         </h2>
-        <p className="text-xl text-blue-300 leading-relaxed">
-          Explorez l'histoire complète de l'une des consoles portables les plus iconiques de Nintendo.
+
+        <div className="grid-insider-2col">
+          {/* Dates côté gauche */}
+          <div className="space-y-8">
+            {[
+              { year: 2011, title: 'Révolution 3D', desc: 'Première console 3D sans lunettes' },
+              { year: 2014, title: 'New 3DS', desc: 'Processeur amélioré & C-stick' },
+              { year: 2020, title: 'Fin de production', desc: 'Après 9 ans de succès' }
+            ].map((item, idx) => (
+              <div key={idx} className="card-insider card-insider-dark">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl font-black text-accent-magenta">{item.year}</span>
+                  <div>
+                    <h4 className="font-bold text-white">{item.title}</h4>
+                    <p className="text-sm text-slate-400">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Visuel côté droit */}
+          <div className="hidden md:flex items-center justify-center">
+            <div className="relative w-full h-80">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 to-accent-magenta/20 rounded-3xl"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-6xl font-black bg-gradient-to-r from-accent-blue to-accent-magenta bg-clip-text text-transparent">
+                    13
+                  </div>
+                  <p className="text-sm mt-2 text-slate-400">ans de passion</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider-insider max-w-7xl mx-auto"></div>
+
+      {/* ═══════════════ CTA FINAL ═══════════════ */}
+      <section className="section-insider max-w-7xl mx-auto bg-gradient-to-r from-accent-blue/5 to-accent-magenta/5 rounded-3xl border border-slate-700">
+        <div className="text-center py-12">
+          <h2 className="title-insider mb-6">
+            Prêt à explorer l'univers 3DS?
+          </h2>
+          <p className="text-block-insider max-w-2xl mx-auto mb-8">
+            Plongez dans une expérience interactive complète avec données, visuels 3D et analyses détaillées.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <Link to="/history" className="btn-insider btn-insider-blue">
+              Histoire <ArrowRight size={20} />
+            </Link>
+            <Link to="/success" className="btn-insider btn-insider-primary">
+              Succès <ArrowRight size={20} />
+            </Link>
+            <Link to="/market" className="btn-insider btn-insider-blue">
+              Marché <ArrowRight size={20} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
           De ses innovations révolutionnaires à son héritage sur le marché rétro, plongez dans l'univers
           de la 3DS à travers des données, analyses et visuels interactifs.
         </p>

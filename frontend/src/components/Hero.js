@@ -1,94 +1,64 @@
-import { Gamepad2, History, TrendingUp, BarChart3 } from 'lucide-react';
+import { Gamepad2, History, TrendingUp, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="relative bg-gradient-to-br from-accent-blue via-blue-600 to-blue-700 text-white py-16 md:py-24 px-4 md:px-8 rounded-3xl overflow-hidden mx-4">
-      {/* Effet de fond */}
-      <div className="absolute inset-0 bg-black opacity-10"></div>
-      <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-32 -translate-y-32"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full opacity-10 transform -translate-x-48 translate-y-48"></div>
-
-      {/* Contenu */}
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          {/* Texte */}
-          <div className="lg:w-1/2 mb-12 lg:mb-0">
-            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
-              <Gamepad2 size={16} className="mr-2" />
-              <span className="text-sm font-semibold">Console Rétro de l'Année 2024</span>
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Nintendo <span className="text-cyan-300">3DS</span>
-              <br />
-              <span className="text-4xl md:text-5xl">L'héritage d'une légende</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              De 2011 à aujourd'hui, revivez l'épopée de la console portable qui a révolutionné
-              le gaming avec sa 3D sans lunettes et ses jeux cultes.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/history"
-                className="bg-white text-accent-blue font-bold py-4 px-8 rounded-full hover:bg-blue-50 transition duration-300 text-center text-lg shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-              >
-                <History size={24} />
-                <span>Explorer l'Histoire</span>
-              </a>
-              <a
-                href="/market"
-                className="bg-transparent border-2 border-white font-bold py-4 px-8 rounded-full hover:bg-white/20 transition duration-300 text-center text-lg flex items-center justify-center space-x-2"
-              >
-                <TrendingUp size={24} />
-                <span>Voir le Marché</span>
-              </a>
-            </div>
+    <div className="relative section-insider max-w-7xl mx-auto">
+      <div className="grid-insider-2col items-center">
+        {/* Texte à gauche */}
+        <div>
+          <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-accent-magenta/30 bg-accent-magenta/5">
+            <Gamepad2 size={16} className="text-accent-magenta" />
+            <span className="text-sm font-bold text-accent-magenta">Nintendo 3DS</span>
           </div>
 
-          {/* Illustration/Statistiques */}
-          <div className="lg:w-2/5">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <div className="flex items-center space-x-2 mb-4">
-                <BarChart3 size={24} />
-                <h3 className="text-2xl font-bold">En bref</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-lg">Sortie mondiale</span>
-                  <span className="font-bold text-xl">2011</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-lg">Unités vendues</span>
-                  <span className="font-bold text-xl">75,94M</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-lg">Jeux les + vendus</span>
-                  <span className="font-bold text-xl">Mario Kart 7</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-lg">Valeur actuelle</span>
-                  <span className="font-bold text-xl text-green-300">+76%</span>
-                </div>
-              </div>
+          <h1 className="title-insider text-5xl md:text-6xl mb-6 leading-tight">
+            L'héritage<br />
+            <span className="title-insider-accent">d'une légende</span>
+          </h1>
 
-              <div className="mt-6 pt-6 border-t border-white/30">
-                <p className="text-sm opacity-80">
-                  « La 3DS a réinventé le jeu portable avec ses innovations et sa bibliothèque exceptionnelle. »
-                </p>
-              </div>
-            </div>
+          <p className="text-block-insider mb-8 text-lg">
+            De 2011 à aujourd'hui, revivez l'épopée de la console portable qui a révolutionné le gaming avec sa 3D sans lunettes et ses jeux cultes.
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-4 mb-12">
+            <Link to="/history" className="btn-insider btn-insider-blue">
+              <History size={20} />
+              Explorer l'Histoire
+            </Link>
+            <Link to="/market" className="btn-insider btn-insider-primary">
+              <TrendingUp size={20} />
+              Voir le Marché
+            </Link>
+          </div>
+
+          <div className="text-sm text-slate-400 font-mono">
+            Basé sur des données de 2024 · 14 ans d'innovation
           </div>
         </div>
-      </div>
 
-      {/* Indicateur de scroll */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="animate-bounce">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+        {/* Stats à droite - layout asymétrique */}
+        <div className="relative">
+          <div className="space-y-4">
+            {[
+              { label: 'Sortie', value: '2011', accent: 'accent-blue' },
+              { label: 'Unités vendues', value: '75,94M', accent: 'accent-magenta' },
+              { label: 'Jeu #1', value: 'Mario Kart 7', accent: 'accent-orange' },
+              { label: 'Valeur actuelle', value: '+76% ↑', accent: 'accent-cyan' }
+            ].map((stat, idx) => (
+              <div key={idx} className="card-insider card-insider-dark">
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400 text-sm font-semibold">{stat.label}</span>
+                  <span className={`text-3xl font-black text-${stat.accent}`}>
+                    {stat.value}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Élément graphique abstrait */}
+          <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br from-accent-magenta/10 to-accent-blue/10 blur-3xl"></div>
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@ import Timeline from '../components/Timeline';
 import HistoryScene from '../components/HistoryScene';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-
 import FloatingIcons from '../components/FloatingIcons';
 
 const History = () => {
@@ -23,39 +22,51 @@ const History = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-dark-bg">
+    <div className="relative overflow-hidden bg-dark-bg text-white">
       <FloatingIcons />
-      <div className="max-w-6xl mx-auto px-4 py-12 relative z-10">
+
+      {/* ═══════════════ HEADER SECTION ═══════════════ */}
+      <section className="section-insider max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
         >
-          <span className="text-accent-blue font-black uppercase tracking-widest text-sm mb-4 block">Archive Officielle</span>
-          <h1 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter">
-            Une <span className="text-accent-blue">Histoire</span> en 3D
+          <span className="text-accent-magenta font-black uppercase tracking-widest text-xs mb-4 block">
+            Archives Officielles · Timeline Interactive
+          </span>
+          <h1 className="title-insider text-5xl md:text-7xl mb-6">
+            L'histoire complète<br />
+            <span className="title-insider-accent">en 3D</span>
           </h1>
-          <p className="text-xl text-blue-300 max-w-2xl mx-auto leading-relaxed">
-            Découvrez l'épopée de la console qui a marqué une décennie de jeu portable,
-            depuis ses débuts ambitieux jusqu'à son héritage éternel.
+          <p className="text-block-insider max-w-3xl text-lg">
+            Découvrez l'épopée de la console qui a marqué une décennie de jeu portable, depuis ses débuts ambitieux jusqu'à son héritage éternel.
           </p>
         </motion.div>
+      </section>
 
-        <Suspense fallback={<div className="h-[400px] bg-slate-800 animate-pulse rounded-2xl mb-12" />}>
+      {/* ═══════════════ 3D SCENE ═══════════════ */}
+      <section className="section-insider max-w-7xl mx-auto">
+        <Suspense fallback={<div className="h-96 bg-slate-800 animate-pulse rounded-3xl" />}>
           <HistoryScene />
         </Suspense>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-20">
-          <div className="lg:col-span-8">
-            <h2 className="text-3xl font-black text-white mb-12 flex items-center">
-              <span className="w-12 h-1 bg-accent-blue mr-4"></span>
-              Chronologie de l'Innovation
+      {/* Divider */}
+      <div className="divider-insider max-w-7xl mx-auto"></div>
+
+      {/* ═══════════════ TIMELINE + SIDEBAR ═══════════════ */}
+      <section className="section-insider max-w-7xl mx-auto">
+        <div className="grid-insider-2col gap-8">
+          {/* Timeline gauche */}
+          <div>
+            <h2 className="title-insider text-4xl mb-12">
+              Chronologie de l'<span className="title-insider-accent">Innovation</span>
             </h2>
             {loading ? (
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {[1, 2, 3].map(i => (
-                  <div key={i} className="h-40 bg-slate-800 animate-pulse rounded-2xl" />
+                  <div key={i} className="h-32 bg-slate-800 animate-pulse rounded-2xl" />
                 ))}
               </div>
             ) : (
@@ -63,35 +74,49 @@ const History = () => {
             )}
           </div>
 
-          <div className="lg:col-span-4">
-            <div className="sticky top-24 space-y-8">
-              <div className="bg-gradient-to-br from-accent-blue/20 to-accent-blue/10 border border-accent-blue/50 p-8 rounded-3xl text-white shadow-xl shadow-blue-500/20 overflow-hidden relative">
-                <div className="absolute -right-8 -bottom-8 opacity-10 rotate-12">
-                  <svg width="200" height="200" viewBox="0 0 100 100" fill="currentColor">
-                    <path d="M10 30h80v40H10z" />
-                    <circle cx="30" cy="80" r="5" />
-                    <circle cx="70" cy="80" r="5" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-black mb-4">Le Saviez-vous ?</h3>
-                <p className="text-blue-100 leading-relaxed font-medium">
-                  La Nintendo 3DS a été la première console portable à offrir de la réalité augmentée (RA) intégrée dès sa sortie avec les cartes AR incluses.
-                </p>
-              </div>
+          {/* Sidebar droit - Éléments informatifs modulables */}
+          <div className="space-y-6">
+            {/* Saviez-vous */}
+            <div className="card-insider card-insider-accent bg-gradient-to-br from-accent-magenta/10 to-accent-blue/10 border-accent-magenta/30">
+              <span className="text-xs font-bold text-accent-magenta uppercase tracking-widest block mb-3">
+                Le Saviez-vous ?
+              </span>
+              <h3 className="text-xl font-black mb-4 text-white">
+                Première console 3D sans lunettes
+              </h3>
+              <p className="text-slate-300 leading-relaxed">
+                La Nintendo 3DS a été la première console portable à offrir de la réalité augmentée (RA) intégrée dès sa sortie avec les cartes AR incluses.
+              </p>
+            </div>
 
-              <div className="bg-dark-card border border-blue-500/30 p-8 rounded-3xl text-white shadow-xl shadow-blue-500/10">
-                <h3 className="text-xl font-bold mb-6 flex items-center">
-                  <span className="w-2 h-2 bg-accent-blue rounded-full mr-3 animate-pulse"></span>
-                  StreetPass & SpotPass
-                </h3>
-                <p className="text-blue-300 text-sm leading-relaxed">
-                  Ces fonctionnalités sociales uniques transformaient chaque trajet en une opportunité de rencontre virtuelle et de partage de données de jeu.
-                </p>
-              </div>
+            {/* StreetPass */}
+            <div className="card-insider card-insider-dark border-accent-cyan/30">
+              <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest block mb-3">
+                Fonctionnalités Sociales
+              </span>
+              <h3 className="text-xl font-black mb-4 text-white">
+                StreetPass & SpotPass
+              </h3>
+              <p className="text-slate-300 leading-relaxed">
+                Ces fonctionnalités uniques transformaient chaque déplacement en une opportunité de rencontre virtuelle et de partage de données.
+              </p>
+            </div>
+
+            {/* Games */}
+            <div className="card-insider card-insider-dark border-accent-orange/30">
+              <span className="text-xs font-bold text-accent-orange uppercase tracking-widest block mb-3">
+                Bibliothèque Massive
+              </span>
+              <h3 className="text-xl font-black mb-4 text-white">
+                3 500+ jeux
+              </h3>
+              <p className="text-slate-300 leading-relaxed">
+                De The Legend of Zelda: A Link Between Worlds à Animal Crossing: New Leaf, une bibliothèque incomparable.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

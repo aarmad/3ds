@@ -181,3 +181,207 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* ═══════════════ INSIDER DESIGN SYSTEM ═══════════════ */
+
+/* Section asymétrique avec spacing respirant */
+.section-insider {
+  @apply relative px-6 md:px-12 py-12 md:py-24;
+}
+
+.section-grid-asymmetric {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .section-grid-asymmetric {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-grid-asymmetric {
+    grid-template-columns: 1.1fr 1.3fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Cartes modulables - style insider */
+.card-insider {
+  @apply relative p-6 md:p-8 rounded-2xl border border-neutral-300 
+         bg-warm-beige dark:bg-dark-card dark:border-slate-700
+         hover:shadow-2xl transition-all duration-300 group;
+}
+
+.card-insider-dark {
+  @apply bg-dark-bg border-neutral-400/20 dark:border-slate-600;
+}
+
+.card-insider-accent {
+  @apply border-accent-magenta/30 dark:border-accent-magenta/20 
+         hover:border-accent-magenta/50 dark:hover:border-accent-magenta/40;
+}
+
+/* Titre section Insider - typographie forte */
+.title-insider {
+  @apply text-3xl md:text-5xl font-black tracking-tighter 
+         text-dark-bg dark:text-white uppper leading-tight;
+  letter-spacing: -0.02em;
+}
+
+.title-insider-accent {
+  @apply text-accent-magenta;
+}
+
+/* Élément graphique abstrait - zigzag */
+.zigzag {
+  position: relative;
+  overflow: visible;
+}
+
+.zigzag::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 200'%3E%3Cpath d='M0,0 L30,20 L0,40 L30,60 L0,80 L30,100 L0,120 L30,140 L0,160 L30,180 L0,200' stroke='%23d946ef' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: repeat-y;
+  opacity: 0.3;
+}
+
+/* Cercle abstrait avec pattern */
+.circle-pattern {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(217, 70, 239, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border: 2px solid rgba(217, 70, 239, 0.2);
+}
+
+.circle-pattern::after {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  opacity: 0.7;
+}
+
+/* Astérisque décoratif */
+.asterisk-deco {
+  font-size: 3rem;
+  color: rgba(217, 70, 239, 0.3);
+  line-height: 1;
+}
+
+/* Élément flottant abstrait */
+.abstract-float {
+  animation: float-abstract 4s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes float-abstract {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-5deg);
+  }
+}
+
+/* Section de texte informatif */
+.text-block-insider {
+  @apply text-base md:text-lg leading-relaxed text-slate-700 
+         dark:text-slate-300 space-y-4;
+}
+
+/* Bouton style insider */
+.btn-insider {
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl 
+         font-bold text-sm tracking-wide uppercase
+         border-2 border-dark-bg dark:border-neutral-300
+         text-dark-bg dark:text-white
+         hover:bg-dark-bg hover:text-white 
+         dark:hover:bg-white dark:hover:text-dark-bg
+         transition-all duration-300 relative overflow-hidden;
+}
+
+.btn-insider-primary {
+  @apply bg-accent-magenta text-white border-accent-magenta
+         hover:bg-accent-magenta/90 hover:shadow-lg hover:shadow-magenta-500/20;
+}
+
+.btn-insider-blue {
+  @apply bg-accent-blue text-white border-accent-blue
+         hover:bg-accent-blue/90 hover:shadow-lg hover:shadow-blue-500/20;
+}
+
+/* Divider Insider */
+.divider-insider {
+  @apply my-12 md:my-16 relative h-1 bg-gradient-to-r 
+         from-transparent via-accent-magenta/20 to-transparent;
+}
+
+.divider-insider::before {
+  content: '*';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom, #1a1a1a, #1a1a1a) padding-box;
+  color: rgba(217, 70, 239, 0.3);
+  font-size: 1.5rem;
+}
+
+/* Grid 2-3 colonnes asymétrique */
+.grid-insider-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-insider-2col {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.grid-insider-3col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-insider-3col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-insider-3col {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Accent color utilities */
+.text-warm-gray {
+  @apply text-warm-gray;
+}
