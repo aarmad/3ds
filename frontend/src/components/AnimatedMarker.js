@@ -15,7 +15,7 @@ const AnimatedMarker = () => {
                     cx="14"
                     cy="14"
                     r="10"
-                    fill="#e60012"
+                    fill="#3b82f6"
                     initial={{ pathLength: 0, opacity: 0 }}
                     animate={{ pathLength: 1, opacity: 1 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
@@ -24,7 +24,7 @@ const AnimatedMarker = () => {
                     cx="14"
                     cy="14"
                     r="12"
-                    stroke="#e60012"
+                    stroke="#3b82f6"
                     strokeWidth="2"
                     fill="none"
                     initial={{ scale: 0.8, opacity: 0 }}

@@ -2,9 +2,9 @@ import { Gamepad2, History, TrendingUp, BarChart3 } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="relative bg-gradient-to-br from-nintendo-blue via-purple-500 to-nintendo-red text-white py-16 md:py-24 px-4 md:px-8 rounded-3xl overflow-hidden">
+    <div className="relative bg-gradient-to-br from-accent-blue via-blue-600 to-blue-700 text-white py-16 md:py-24 px-4 md:px-8 rounded-3xl overflow-hidden mx-4">
       {/* Effet de fond */}
-      <div className="absolute inset-0 bg-black opacity-20"></div>
+      <div className="absolute inset-0 bg-black opacity-10"></div>
       <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-32 -translate-y-32"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full opacity-10 transform -translate-x-48 translate-y-48"></div>
 
@@ -19,7 +19,7 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Nintendo <span className="text-yellow-300">3DS</span>
+              Nintendo <span className="text-cyan-300">3DS</span>
               <br />
               <span className="text-4xl md:text-5xl">L'héritage d'une légende</span>
             </h1>
@@ -32,7 +32,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="/history"
-                className="bg-white text-nintendo-red font-bold py-4 px-8 rounded-full hover:bg-gray-100 transition duration-300 text-center text-lg shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                className="bg-white text-accent-blue font-bold py-4 px-8 rounded-full hover:bg-blue-50 transition duration-300 text-center text-lg shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
               >
                 <History size={24} />
                 <span>Explorer l'Histoire</span>

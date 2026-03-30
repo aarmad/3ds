@@ -1,0 +1,11 @@
+Model Information:
+* title:	New Nintendo 3ds XL
+* source:	https://sketchfab.com/3d-models/new-nintendo-3ds-xl-210044c09d214617a65251be402a2977
+* author:	lazercar (https://sketchfab.com/lazercar)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "New Nintendo 3ds XL" (https://sketchfab.com/3d-models/new-nintendo-3ds-xl-210044c09d214617a65251be402a2977) by lazercar (https://sketchfab.com/lazercar) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -4,13 +4,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white pt-12 pb-8">
+    <footer className="bg-slate-900 border-t border-slate-700 text-white pt-12 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Section À propos */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-nintendo-red">Nintendo 3DS Archive</h3>
-            <p className="text-gray-400">
+            <h3 className="text-xl font-bold mb-4 text-accent-blue">Nintendo 3DS Archive</h3>
+            <p className="text-blue-300/70">
               Site fan dédié à la préservation de l'histoire et de l'héritage
               de la Nintendo 3DS. Non affilié à Nintendo.
             </p>
@@ -18,19 +18,19 @@ const Footer = () => {
 
           {/* Liens rapides */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Navigation</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Navigation</h4>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-400 hover:text-white transition flex items-center space-x-2"><Home size={16} /> <span>Accueil</span></a></li>
-              <li><a href="/history" className="text-gray-400 hover:text-white transition flex items-center space-x-2"><Scroll size={16} /> <span>Histoire</span></a></li>
-              <li><a href="/success" className="text-gray-400 hover:text-white transition flex items-center space-x-2"><Trophy size={16} /> <span>Succès</span></a></li>
-              <li><a href="/market" className="text-gray-400 hover:text-white transition flex items-center space-x-2"><TrendingUp size={16} /> <span>Marché</span></a></li>
+              <li><a href="/" className="text-blue-300/70 hover:text-accent-blue transition flex items-center space-x-2"><Home size={16} /> <span>Accueil</span></a></li>
+              <li><a href="/history" className="text-blue-300/70 hover:text-accent-blue transition flex items-center space-x-2"><Scroll size={16} /> <span>Histoire</span></a></li>
+              <li><a href="/success" className="text-blue-300/70 hover:text-accent-blue transition flex items-center space-x-2"><Trophy size={16} /> <span>Succès</span></a></li>
+              <li><a href="/market" className="text-blue-300/70 hover:text-accent-blue transition flex items-center space-x-2"><TrendingUp size={16} /> <span>Marché</span></a></li>
             </ul>
           </div>
 
           {/* Sources */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Sources</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="text-lg font-semibold mb-4 text-white">Sources</h4>
+            <ul className="space-y-2 text-blue-300/70">
               <li className="flex items-center space-x-2"><BarChart3 size={16} /> <span>Nintendo Financial Reports</span></li>
               <li className="flex items-center space-x-2"><Gamepad2 size={16} /> <span>VGChartz & Wikipedia</span></li>
               <li className="flex items-center space-x-2"><TrendingUp size={16} /> <span>eBay Market Data</span></li>
@@ -40,8 +40,8 @@ const Footer = () => {
 
           {/* Contact/Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Informations</h4>
-            <div className="space-y-2 text-gray-400">
+            <h4 className="text-lg font-semibold mb-4 text-white">Informations</h4>
+            <div className="space-y-2 text-blue-300/70">
               <div className="flex items-center space-x-2"><Calendar size={16} /> <p>Données mises à jour : Mars 2025</p></div>
               <div className="flex items-center space-x-2"><AlertTriangle size={16} /> <p>Ce site est un projet éducatif</p></div>
               <div className="flex items-center space-x-2"><Lock size={16} /> <p>Toutes les marques appartiennent à leurs propriétaires respectifs</p></div>
@@ -50,11 +50,11 @@ const Footer = () => {
         </div>
 
         {/* Séparateur */}
-        <div className="border-t border-gray-800 my-8"></div>
+        <div className="border-t border-slate-700 my-8"></div>
 
         {/* Bas de page */}
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-500 text-sm mb-4 md:mb-0">
+          <div className="text-blue-300/50 text-sm mb-4 md:mb-0">
             © {currentYear} Nintendo 3DS Archive - Projet de démonstration full-stack
           </div>
 
@@ -63,7 +63,7 @@ const Footer = () => {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
+              className="text-blue-300/70 hover:text-accent-blue transition"
               title="Code source"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ const Footer = () => {
             </a>
 
             <button
-              className="text-gray-400 hover:text-white transition text-sm"
+              className="text-blue-300/70 hover:text-accent-blue transition text-sm"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               ↑ Retour en haut
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
 
         {/* Avertissement */}
-        <div className="mt-8 text-center text-xs text-gray-600">
+        <div className="mt-8 text-center text-xs text-blue-300/40">
           <p>
             Ce site est un projet de démonstration de développement web full-stack.
             Les données présentées sont basées sur des sources publiques et peuvent contenir des approximations.

@@ -37,66 +37,69 @@ const Market = () => {
   ];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 bg-dark-bg py-12 px-4">
       {/* En-tête */}
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-nintendo-red mb-4">
+        <h1 className="text-5xl font-bold text-accent-blue mb-4">
           Marché Rétro Actuel
         </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-blue-300 max-w-3xl mx-auto">
           La 3DS devient un objet de collection : analyse des tendances et de la valeur
         </p>
       </div>
 
       {/* Tendance principale */}
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg">
+      <div className="bg-gradient-to-r from-blue-950/40 to-slate-900 border border-blue-500/20 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto w-full">
         <div className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <TrendingUp size={32} className="text-purple-600" />
-            <h2 className="text-3xl font-semibold text-gray-800">
+            <TrendingUp size={32} className="text-accent-blue" />
+            <h2 className="text-3xl font-semibold text-white">
               Tendance du marché
             </h2>
           </div>
-          <p className="text-2xl text-gray-700 italic">
+          <p className="text-2xl text-blue-200 italic">
             "{marketData.trend}"
           </p>
-          <div className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-nintendo-red text-white rounded-full font-semibold">
+          <div className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-accent-blue text-white rounded-full font-semibold">
             +76% depuis 2020
           </div>
         </div>
       </div>
 
       {/* Graphiques */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto w-full">
         {/* Graphique d'évolution */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+        <div className="bg-dark-card border border-blue-500/20 rounded-2xl p-6 shadow-lg">
+          <h3 className="text-2xl font-semibold text-white mb-6">
             Évolution des prix (2020-2025)
           </h3>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={priceEvolutionData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="année" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                <XAxis dataKey="année" stroke="#cbd5e1" />
                 <YAxis
-                  label={{ value: 'Prix ($)', angle: -90, position: 'insideLeft' }}
+                  label={{ value: 'Prix ($)', angle: -90, position: 'insideLeft', fill: '#cbd5e1' }}
                   domain={[0, 400]}
+                  stroke="#cbd5e1"
                 />
                 <Tooltip
                   formatter={(value) => [`$${value}`, 'Prix']}
+                  contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #3b82f6' }}
+                  labelStyle={{ color: '#60a5fa' }}
                 />
                 <Legend />
                 <Line
                   type="monotone"
                   dataKey="3DS XL"
-                  stroke="#e60012"
+                  stroke="#3b82f6"
                   strokeWidth={3}
                   activeDot={{ r: 8 }}
                 />
                 <Line
                   type="monotone"
                   dataKey="New 3DS XL"
-                  stroke="#1b7bb8"
+                  stroke="#60a5fa"
                   strokeWidth={3}
                 />
                 <Line
@@ -111,8 +114,8 @@ const Market = () => {
         </div>
 
         {/* Graphique en aires */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+        <div className="bg-dark-card border border-blue-500/20 rounded-2xl p-6 shadow-lg">
+          <h3 className="text-2xl font-semibold text-white mb-6">
             Demande du marché
           </h3>
           <div className="h-80">
@@ -122,48 +125,48 @@ const Market = () => {
       </div>
 
       {/* Tableau des prix */}
-      <div className="bg-white rounded-2xl p-8 shadow-lg">
+      <div className="bg-dark-card border border-blue-500/20 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto w-full">
         <div className="flex items-center space-x-3 mb-6">
-          <BarChart3 size={32} className="text-gray-800" />
-          <h2 className="text-3xl font-semibold text-gray-800">
+          <BarChart3 size={32} className="text-accent-blue" />
+          <h2 className="text-3xl font-semibold text-white">
             Prix actuels du marché d'occasion
           </h2>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+          <table className="min-w-full divide-y divide-slate-700">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-300 uppercase tracking-wider">
                   Modèle
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-300 uppercase tracking-wider">
                   Prix moyen (USD)
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-300 uppercase tracking-wider">
                   État de la demande
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-300 uppercase tracking-wider">
                   Rareté
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="divide-y divide-slate-700">
               {marketData.currentPrices?.map((item, index) => (
-                <tr key={index} className="hover:bg-gray-50">
+                <tr key={index} className="hover:bg-slate-800/50">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="font-medium text-gray-900">{item.model}</div>
+                    <div className="font-medium text-white">{item.model}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="font-bold text-nintendo-blue text-lg">
+                    <span className="font-bold text-accent-blue text-lg">
                       {item.price}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${index === 0
-                      ? 'bg-green-100 text-green-800'
+                      ? 'bg-green-500/20 text-green-400'
                       : index === 1
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : 'bg-blue-100 text-blue-800'
+                        ? 'bg-yellow-500/20 text-yellow-400'
+                        : 'bg-accent-blue/20 text-accent-blue'
                       }`}>
                       {index === 0 ? 'Élevée' : index === 1 ? 'Très élevée' : 'Modérée'}
                     </span>
@@ -173,7 +176,7 @@ const Market = () => {
                       {[...Array(3)].map((_, i) => (
                         <svg
                           key={i}
-                          className={`w-5 h-5 ${i < (index + 1) ? 'text-yellow-400' : 'text-gray-300'
+                          className={`w-5 h-5 ${i < (index + 1) ? 'text-yellow-400' : 'text-slate-600'
                             }`}
                           fill="currentColor"
                           viewBox="0 0 20 20"
@@ -188,30 +191,30 @@ const Market = () => {
             </tbody>
           </table>
         </div>
-        <p className="text-gray-500 text-sm mt-4">
+        <p className="text-blue-300/70 text-sm mt-4">
           *Prix basés sur les transactions eBay et les marchés spécialisés (2024)
         </p>
       </div>
 
       {/* Facteurs explicatifs */}
-      <div className="bg-gray-50 rounded-2xl p-8">
+      <div className="bg-dark-card border border-blue-500/20 rounded-2xl p-8 max-w-6xl mx-auto w-full">
         <div className="flex items-center space-x-3 mb-6">
-          <Target size={32} className="text-nintendo-red" />
-          <h2 className="text-3xl font-semibold text-gray-800">
+          <Target size={32} className="text-accent-blue" />
+          <h2 className="text-3xl font-semibold text-white">
             Facteurs expliquant cette valorisation
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {marketData.reasons?.map((reason, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+            <div key={index} className="bg-slate-800/50 border border-blue-500/20 p-6 rounded-xl">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-nintendo-red rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-12 h-12 bg-accent-blue rounded-full flex items-center justify-center text-white font-bold text-xl">
                     {index + 1}
                   </div>
                 </div>
                 <div className="ml-4">
-                  <p className="text-lg text-gray-800">{reason}</p>
+                  <p className="text-lg text-blue-200">{reason}</p>
                 </div>
               </div>
             </div>
@@ -219,7 +222,7 @@ const Market = () => {
         </div>
 
         {/* Section supplémentaire */}
-        <div className="mt-8 bg-gradient-to-r from-nintendo-blue to-nintendo-red rounded-xl p-6 text-white">
+        <div className="mt-8 bg-gradient-to-r from-accent-blue to-blue-600 rounded-xl p-6 text-white">
           <div className="flex items-center space-x-2 mb-4">
             <Lightbulb size={24} />
             <h3 className="text-2xl font-bold">Conseil aux collectionneurs</h3>
@@ -233,14 +236,14 @@ const Market = () => {
       </div>
 
       {/* Homebrew */}
-      <div className="bg-white rounded-2xl p-8 shadow-lg">
+      <div className="bg-dark-card border border-blue-500/20 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto w-full">
         <div className="flex items-center space-x-3 mb-6">
-          <Wrench size={32} className="text-gray-800" />
-          <h2 className="text-3xl font-semibold text-gray-800">
+          <Wrench size={32} className="text-accent-blue" />
+          <h2 className="text-3xl font-semibold text-white">
             Scène Homebrew et Modding
           </h2>
         </div>
-        <div className="space-y-4 text-gray-700">
+        <div className="space-y-4 text-blue-200">
           <p>
             La scène homebrew de la 3DS est l'une des plus actives et accessibles du marché rétro.
             Cela contribue fortement à la demande :

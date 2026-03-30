@@ -25,13 +25,13 @@ const MarketChart = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-4 border border-gray-200 shadow-lg rounded-lg">
-          <p className="font-bold text-gray-800 mb-2">{label} 2024</p>
-          <p className="text-nintendo-blue flex items-center space-x-1">
+        <div className="bg-dark-card border border-blue-500/50 p-4 shadow-lg rounded-lg">
+          <p className="font-bold text-white mb-2">{label} 2024</p>
+          <p className="text-accent-blue flex items-center space-x-1">
             <Search size={14} />
             <span>Recherches: <span className="font-bold">{payload[0].value}%</span></span>
           </p>
-          <p className="text-nintendo-red flex items-center space-x-1">
+          <p className="text-cyan-400 flex items-center space-x-1">
             <DollarSign size={14} />
             <span>Ventes: <span className="font-bold">{payload[1].value}</span></span>
           </p>
@@ -49,12 +49,13 @@ const MarketChart = () => {
       >
         <CartesianGrid
           strokeDasharray="3 3"
-          stroke="#f0f0f0"
+          stroke="#334155"
         />
         <XAxis
           dataKey="mois"
-          axisLine={{ stroke: '#d1d5db' }}
+          axisLine={{ stroke: '#94a3b8' }}
           tickLine={false}
+          stroke="#94a3b8"
         />
         <YAxis
           yAxisId="left"
@@ -62,9 +63,11 @@ const MarketChart = () => {
             value: 'Recherches (%)',
             angle: -90,
             position: 'insideLeft',
-            offset: -10
+            offset: -10,
+            fill: '#cbd5e1'
           }}
           domain={[0, 200]}
+          stroke="#94a3b8"
         />
         <YAxis
           yAxisId="right"
@@ -73,13 +76,16 @@ const MarketChart = () => {
             value: 'Ventes',
             angle: 90,
             position: 'insideRight',
-            offset: -10
+            offset: -10,
+            fill: '#cbd5e1'
           }}
+          stroke="#94a3b8"
         />
         <Tooltip content={<CustomTooltip />} />
         <Legend
           verticalAlign="top"
           height={36}
+          wrapperStyle={{ color: '#e2e8f0' }}
         />
         <Area
           yAxisId="left"
@@ -87,7 +93,7 @@ const MarketChart = () => {
           dataKey="recherche"
           name="Intérêt des recherches"
           stackId="1"
-          stroke="#1b7bb8"
+          stroke="#3b82f6"
           fill="url(#colorRecherche)"
           fillOpacity={0.6}
         />
@@ -97,18 +103,18 @@ const MarketChart = () => {
           dataKey="ventes"
           name="Ventes estimées"
           stackId="2"
-          stroke="#e60012"
+          stroke="#06b6d4"
           fill="url(#colorVentes)"
           fillOpacity={0.6}
         />
         <defs>
           <linearGradient id="colorRecherche" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#1b7bb8" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#1b7bb8" stopOpacity={0} />
+            <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="colorVentes" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#e60012" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#e60012" stopOpacity={0} />
+            <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#06b6d4" stopOpacity={0} />
           </linearGradient>
         </defs>
       </AreaChart>

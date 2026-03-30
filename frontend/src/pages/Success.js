@@ -31,29 +31,29 @@ const Success = () => {
   })) || [];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 bg-dark-bg py-12 px-4">
       {/* En-tête */}
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-nintendo-red mb-4">
+        <h1 className="text-5xl font-bold text-accent-blue mb-4">
           Le Succès de la 3DS
         </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-blue-300 max-w-3xl mx-auto">
           Une console qui a marqué son époque avec une bibliothèque de jeux exceptionnelle
         </p>
       </div>
 
       {/* Ventes totales */}
-      <div className="bg-gradient-to-r from-blue-50 to-red-50 rounded-2xl p-8 shadow-lg">
+      <div className="bg-gradient-to-r from-blue-950/40 to-slate-900 border border-blue-500/20 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto w-full">
         <div className="text-center">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+          <h2 className="text-3xl font-semibold text-white mb-4">
             Ventes mondiales totales
           </h2>
           <div className="flex flex-col items-center">
-            <div className="text-7xl font-bold text-nintendo-blue mb-2">
+            <div className="text-7xl font-bold text-accent-blue mb-2">
               {successData.totalSales}
             </div>
-            <p className="text-2xl text-gray-600">d'unités vendues</p>
-            <p className="text-gray-500 mt-4">
+            <p className="text-2xl text-blue-300">d'unités vendues</p>
+            <p className="text-blue-300/70 mt-4">
               Chiffre officiel Nintendo (arrêté au 30 septembre 2022)
             </p>
           </div>
@@ -61,8 +61,8 @@ const Success = () => {
       </div>
 
       {/* Graphique des ventes */}
-      <div className="bg-white rounded-2xl p-8 shadow-lg">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8">
+      <div className="bg-dark-card border border-blue-500/20 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto w-full">
+        <h2 className="text-3xl font-semibold text-white mb-8">
           Top des jeux les plus vendus
         </h2>
         <div className="h-96">
@@ -71,29 +71,34 @@ const Success = () => {
               data={chartData}
               margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
             >
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
               <XAxis
                 dataKey="name"
                 angle={-45}
                 textAnchor="end"
                 height={80}
+                stroke="#cbd5e1"
               />
               <YAxis
                 label={{
                   value: 'Millions d\'unités',
                   angle: -90,
-                  position: 'insideLeft'
+                  position: 'insideLeft',
+                  fill: '#cbd5e1'
                 }}
+                stroke="#cbd5e1"
               />
               <Tooltip
                 formatter={(value) => [`${value} millions`, 'Ventes']}
                 labelFormatter={(label) => `Jeu: ${label}`}
+                contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #3b82f6' }}
+                labelStyle={{ color: '#60a5fa' }}
               />
               <Legend />
               <Bar
                 dataKey="ventes"
                 name="Ventes (millions)"
-                fill="#e60012"
+                fill="#3b82f6"
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
@@ -102,8 +107,8 @@ const Success = () => {
       </div>
 
       {/* Cartes des jeux */}
-      <div>
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8">
+      <div className="max-w-6xl mx-auto w-full px-4">
+        <h2 className="text-3xl font-semibold text-white mb-8">
           Découvrez les hits de la 3DS
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -119,11 +124,11 @@ const Success = () => {
       </div>
 
       {/* Section contexte */}
-      <div className="bg-gray-50 rounded-2xl p-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+      <div className="bg-dark-card border border-blue-500/20 rounded-2xl p-8 max-w-6xl mx-auto w-full">
+        <h3 className="text-2xl font-semibold text-white mb-4">
           Contexte du succès
         </h3>
-        <div className="space-y-4 text-gray-700">
+        <div className="space-y-4 text-blue-200">
           <p>
             La Nintendo 3DS a dominé le marché des consoles portables pendant près d'une décennie.
             Son succès s'explique par plusieurs facteurs :
@@ -147,5 +152,7 @@ const Success = () => {
     </div>
   );
 };
+
+export default Success;
 
 export default Success;

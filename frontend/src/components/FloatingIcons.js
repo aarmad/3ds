@@ -29,9 +29,9 @@ const FloatingIcons = () => {
                     }}
                 >
                     {i % 2 === 0 ? (
-                        <path d="M10 10 L30 10 L30 30 L10 30 Z" fill="#e60012" />
+                        <path d="M10 10 L30 10 L30 30 L10 30 Z" fill="#3b82f6" />
                     ) : (
-                        <circle cx="20" cy="20" r="10" fill="#1b7bb8" />
+                        <circle cx="20" cy="20" r="10" fill="#60a5fa" />
                     )}
                 </motion.svg>
             ))}

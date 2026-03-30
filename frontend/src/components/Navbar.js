@@ -19,20 +19,20 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-dark-bg border-b border-slate-700 shadow-xl shadow-blue-500/10 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <motion.div
               whileHover={{ rotate: 15, scale: 1.1 }}
-              className="w-10 h-10 bg-nintendo-red rounded-full flex items-center justify-center shadow-md shadow-red-200"
+              className="w-10 h-10 bg-accent-blue rounded-full flex items-center justify-center shadow-md shadow-blue-500/30"
             >
               <span className="text-white font-bold text-xl">3DS</span>
             </motion.div>
             <div>
-              <div className="text-2xl font-bold text-gray-900 group-hover:text-nintendo-red transition-colors">Nintendo 3DS</div>
-              <div className="text-xs text-gray-500">Archives & Marché Rétro</div>
+              <div className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors">Nintendo 3DS</div>
+              <div className="text-xs text-blue-300/70">Archives & Marché Rétro</div>
             </div>
           </Link>
 
@@ -43,8 +43,8 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-full transition duration-300 ${isActive(item.path)
-                  ? 'bg-nintendo-red text-white'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  ? 'bg-accent-blue text-white shadow-lg shadow-blue-500/50'
+                  : 'text-blue-300 hover:bg-blue-900/30 hover:text-accent-blue'
                   }`}
               >
                 <span>{item.icon}</span>
@@ -55,7 +55,7 @@ const Navbar = () => {
             {/* Bouton admin (pour démo) */}
             <Link
               to="/admin"
-              className="ml-4 px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition duration-300 font-medium flex items-center space-x-2"
+              className="ml-4 px-4 py-2 bg-blue-900/40 text-blue-300 rounded-full hover:bg-blue-800/40 hover:text-accent-blue transition duration-300 font-medium flex items-center space-x-2 border border-blue-500/30"
             >
               <Settings size={18} />
               <span>Admin</span>
@@ -64,7 +64,7 @@ const Navbar = () => {
 
           {/* Menu mobile */}
           <button
-            className="md:hidden text-gray-700"
+            className="md:hidden text-blue-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -81,15 +81,15 @@ const Navbar = () => {
 
         {/* Menu mobile ouvert */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-slate-700">
             <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition duration-300 ${isActive(item.path)
-                    ? 'bg-nintendo-red text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-accent-blue text-white'
+                    : 'text-blue-300 hover:bg-blue-900/30 hover:text-accent-blue'
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -102,7 +102,7 @@ const Navbar = () => {
                 href="http://localhost:5000/admin/admin.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 px-4 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300"
+                className="flex items-center space-x-3 px-4 py-3 bg-blue-900/40 text-blue-300 rounded-lg hover:bg-blue-800/40 transition duration-300 border border-blue-500/30"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <Settings size={20} />
